@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: radial-gradient(circle at 50% 30%, #1a0033 0%, #0a001f 40%, #000000 80%);
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27100%27 height=%27100%27%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%271%27 fill=%27%23ffffff%27 opacity=%270.15%27/%3E%3Ccircle cx=%2780%27 cy=%2740%27 r=%271.5%27 fill=%27%23ffffff%27 opacity=%270.1%27/%3E%3Ccircle cx=%2740%27 cy=%2780%27 r=%271%27 fill=%27%23ffffff%27 opacity=%270.2%27/%3E%3C/svg%27') repeat;
+  animation: stars 80s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes stars {
+  from { background-position: 0 0; }
+  to { background-position: 200px 200px; }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
+}
+
+.neon-text {
+  text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff, 0 0 50px #7b00ff;
+}
+
+.gradient-btn {
+  background: linear-gradient(90deg, #00ffff, #ff00cc, #7b00ff);
+  background-size: 300% 300%;
+  animation: gradientShift 6s ease infinite;
+  transition: all 0.4s;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-btn:active {
+  transform: scale(0.95);
+}
