@@ -1,16 +1,10 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { backButton } from '@telegram-apps/sdk-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
   const [screen, setScreen] = useState('welcome');
 
-  useEffect(() => {
-    backButton.show();
-    backButton.onClick(() => {
-      if (screen === 'city') setScreen('welcome');
-    });
-  }, [screen]);
+  // Removed Telegram SDK code for GitHub Pages deployment
 
   return (
     <div className="min-h-screen relative overflow-hidden">
